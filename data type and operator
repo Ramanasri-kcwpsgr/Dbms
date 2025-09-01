@@ -1,0 +1,681 @@
+
+SQL> CREATE TABLE Employees( empid number (4) , ename varchar (30) , address varchar
+  2  (50) , salary number (20) , doj date , deptid number (5) );
+
+Table created.
+
+SQL>
+SQL> INSERT INTO Employees VALUES
+  2  (121,'SUBIKSHA','COIMBATORE',50000,'03FEB2002',567) ;
+
+1 row created.
+
+SQL> INSERT INTO Employees VALUES
+  2  (122,'KAVIYA','COIMBATORE',100000,'24MAR2003',566) ;
+
+1 row created.
+
+SQL> INSERT INTO Employees VALUES
+  2  (123,'DHARSAN','SALEM',80000,'03OCT2002',588) ;
+
+1 row created.
+
+SQL> INSERT INTO Employees VALUES
+  2  (124,'KATHIR','DINDUGUL',90000,'27MAY2002',600) ;
+
+1 row created.
+
+SQL> INSERT INTO Employees VALUES (125,'SIVA','THENI',60000,'24JUN2002',677) ;
+
+1 row created.
+
+SQL> INSERT INTO Employees VALUES
+  2  (126,'KARISHMA','CHENNAI',70000,'18SEP2002',699) ;
+
+1 row created.
+
+SQL> SELECT * FROM Employees ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+       122 KAVIYA
+COIMBATORE                                             100000 24-MAR-03
+       566
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       600
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+       677
+
+       126 KARISHMA
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+CHENNAI                                                 70000 18-SEP-02
+       699
+
+
+6 rows selected.
+
+SQL> DESC Employees;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPID                                              NUMBER(4)
+ ENAME                                              VARCHAR2(30)
+ ADDRESS                                            VARCHAR2(50)
+ SALARY                                             NUMBER(20)
+ DOJ                                                DATE
+ DEPTID                                             NUMBER(5)
+
+SQL> SELECT empid, ename, salary, (salary-10600) FROM Employees ;
+
+     EMPID ENAME                              SALARY (SALARY-10600)
+---------- ------------------------------ ---------- --------------
+       121 SUBIKSHA                            50000          39400
+       122 KAVIYA                             100000          89400
+       123 DHARSAN                             80000          69400
+       124 KATHIR                              90000          79400
+       125 SIVA                                60000          49400
+       126 KARISHMA                            70000          59400
+
+6 rows selected.
+
+SQL> SELECT empid, ename, salary, (salary*25/100) FROM Employees ;
+
+     EMPID ENAME                              SALARY (SALARY*25/100)
+---------- ------------------------------ ---------- ---------------
+       121 SUBIKSHA                            50000           12500
+       122 KAVIYA                             100000           25000
+       123 DHARSAN                             80000           20000
+       124 KATHIR                              90000           22500
+       125 SIVA                                60000           15000
+       126 KARISHMA                            70000           17500
+
+6 rows selected.
+
+SQL> SELECT * FROM Employees WHERE salary > 50000 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       122 KAVIYA
+COIMBATORE                                             100000 24-MAR-03
+       566
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+       600
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       677
+
+       126 KARISHMA
+CHENNAI                                                 70000 18-SEP-02
+       699
+
+
+SQL> SELECT * FROM Employees WHERE salary < 90000 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+       677
+
+       126 KARISHMA
+CHENNAI                                                 70000 18-SEP-02
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       699
+
+
+SQL> SELECT * FROM Employees WHERE salary <= 90000 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+       600
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       677
+
+       126 KARISHMA
+CHENNAI                                                 70000 18-SEP-02
+       699
+
+
+SQL> SELECT * FROM Employees WHERE salary >= 80000 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       122 KAVIYA
+COIMBATORE                                             100000 24-MAR-03
+       566
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+       600
+
+
+SQL> SELECT * FROM Employees WHERE salary = 90000 and address = 'DINDUGUL';
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+       600
+
+
+SQL> SELECT * FROM Employees WHERE salary = 80000 or address ='SALEM' ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+
+SQL> SELECT * FROM Employees WHERE NOT address = 'COIMBATORE' ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+       600
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+       677
+
+       126 KARISHMA
+CHENNAI                                                 70000 18-SEP-02
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       699
+
+
+SQL> SELECT * FROM Employees WHERE salary IN (50000,60000,90000) ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+       600
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+       677
+
+
+SQL> SELECT * FROM Employees WHERE salary NOT IN(50000,60000,90000) ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       122 KAVIYA
+COIMBATORE                                             100000 24-MAR-03
+       566
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       126 KARISHMA
+CHENNAI                                                 70000 18-SEP-02
+       699
+
+
+SQL> SELECT * FROM Employees WHERE salary BETWEEN 50000 AND 95000 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+       600
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       677
+
+       126 KARISHMA
+CHENNAI                                                 70000 18-SEP-02
+       699
+
+
+SQL> SELECT * FROM Employees WHERE salary NOT BETWEEN 50000 AND 80000 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       122 KAVIYA
+COIMBATORE                                             100000 24-MAR-03
+       566
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+       600
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+
+SQL> CREATE TABLE Employee2 ( empid number (4) , ename varchar (30) , address varchar
+  2  (50) , salary number (20) , doj date , deptid number (5) ) ;
+
+Table created.
+
+SQL> INSERT INTO Employee2 VALUES
+  2  (121,'SUBIKSHA','COIMBATORE',50000,'03FEB2002',567) ;
+
+1 row created.
+
+SQL> INSERT INTO Employee2 VALUES
+  2  (127,'PRITHI','VIRUDUNAGAR',80000,'28NOV2001',566) ;
+
+1 row created.
+
+SQL> INSERT INTO Employee2 VALUES
+  2  (128,'NANDHINI','DINDUGUL',40000,'08FEB2001',568) ;
+
+1 row created.
+
+SQL> SELECT * FROM Employee2 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+       127 PRITHI
+VIRUDUNAGAR                                             80000 28-NOV-01
+       566
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       128 NANDHINI
+DINDUGUL                                                40000 08-FEB-01
+       568
+
+
+SQL> SELECT * FROM Employees UNION SELECT * FROM Employee2 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+       122 KAVIYA
+COIMBATORE                                             100000 24-MAR-03
+       566
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       600
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+       677
+
+       126 KARISHMA
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+CHENNAI                                                 70000 18-SEP-02
+       699
+
+       127 PRITHI
+VIRUDUNAGAR                                             80000 28-NOV-01
+       566
+
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       128 NANDHINI
+DINDUGUL                                                40000 08-FEB-01
+       568
+
+
+8 rows selected.
+
+SQL> SELECT * FROM Employees UNION all SELECT * FROM Employee2 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+       122 KAVIYA
+COIMBATORE                                             100000 24-MAR-03
+       566
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+       123 DHARSAN
+SALEM                                                   80000 03-OCT-02
+       588
+
+       124 KATHIR
+DINDUGUL                                                90000 27-MAY-02
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       600
+
+       125 SIVA
+THENI                                                   60000 24-JUN-02
+       677
+
+       126 KARISHMA
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+CHENNAI                                                 70000 18-SEP-02
+       699
+
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
+
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       127 PRITHI
+VIRUDUNAGAR                                             80000 28-NOV-01
+       566
+
+       128 NANDHINI
+DINDUGUL                                                40000 08-FEB-01
+       568
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+
+
+9 rows selected.
+
+SQL> SELECT * FROM Employees INTERSECT SELECT * FROM Employee2 ;
+
+     EMPID ENAME
+---------- ------------------------------
+ADDRESS                                                SALARY DOJ
+-------------------------------------------------- ---------- ---------
+    DEPTID
+----------
+       121 SUBIKSHA
+COIMBATORE                                              50000 03-FEB-02
+       567
