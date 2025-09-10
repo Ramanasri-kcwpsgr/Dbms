@@ -1,0 +1,46 @@
+SQL> CREATE TABLE Customers1 ( id number , name varchar (20) , age number (3) ,address varchar (40) , payment number ) ;
+
+Table created.
+
+SQL> INSERT INTO Customers1 VALUES  ( 22, 'ANU', 23, 'OOTY', 5000 ) ;
+
+1 row created.
+
+SQL>  INSERT INTO Customers1 VALUES( 24, 'DHEENA', 25, 'COIMBATORE', 10000 ) ;
+
+1 row created.
+
+SQL> INSERT INTO Customers1 VALUES( 25, 'PREMA', 24, 'ERODE', 6000 );
+
+1 row created.
+
+SQL> CREATE PACKAGE customers1_pay AS PROCEDURE find_pay ( c_id Customers1.id%type ) ;
+  2   END customers1_pay ;
+  3  /
+
+Package created.
+
+SQL>  CREATE OR REPLACE PACKAGE BODY customers1_pay AS PROCEDURE find_pay ( c_id Customers1.id% TYPE ) IS c_pay Customers1.payment%TYPE ;
+  2  BEGIN
+  3  SELECT payment INTO c_pay FROM Customers1 WHERE id = c_id ;
+  4   dbms_output.put_line ( 'payment :' || c_pay ) ;
+  5   END find_pay ;
+  6   END customers1_pay ;
+  7  /
+
+Package body created.
+
+SQL> DECLARE
+  2  code Customers1.id%type := & cc_id ;
+  3  BEGIN
+  4  customers1_pay.find_pay ( code ) ;
+  5  END ;
+  6  /
+Enter value for cc_id: 22
+old   2: code Customers1.id%type := & cc_id ;
+new   2: code Customers1.id%type := 22 ;
+
+PL/SQL procedure successfully completed.
+
+
+
