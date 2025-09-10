@@ -1,0 +1,53 @@
+SQL> CREATE TABLE Emprecords ( Eno number (3) , ename varchar (8) , address varchar (20) ) ;
+
+Table created.
+
+SQL> INSERT INTO Emprecords VALUES (1,'LIA','SALEM') ;
+
+1 row created.
+
+SQL> INSERT INTO Emprecords VALUES (2,'DISHONA','SALEM') ;
+
+1 row created.
+
+SQL> INSERT INTO Emprecords VALUES (3,'SRIMATHI','MADURAI') ;
+
+1 row created.
+
+SQL> INSERT INTO Emprecords VALUES (4,'SELVI','MADURAI') ;
+
+1 row created.
+
+SQL> SELECT * FROM Emprecords ;
+
+       ENO ENAME    ADDRESS
+---------- -------- --------------------
+         1 LIA      SALEM
+         2 DISHONA  SALEM
+         3 SRIMATHI MADURAI
+         4 SELVI    MADURAI
+
+SQL> ALTER TABLE Emprecords ADD age number (2) ;
+
+Table altered.
+
+SQL> UPDATE Emprecords SET age = 18 WHERE address = 'MADURAI' ;
+
+2 rows updated.
+
+SQL> ALTER TABLE Emprecords MODIFY ename varchar (30) ;
+
+Table altered.
+
+SQL> SELECT * FROM Emprecords ;
+
+       ENO ENAME                          ADDRESS                     AGE
+---------- ------------------------------ -------------------- ----------
+         1 LIA                            SALEM
+         2 DISHONA                        SALEM
+         3 SRIMATHI                       MADURAI                      18
+         4 SELVI                          MADURAI                      18
+
+SQL> ALTER TABLE Emprecords DROP COLUMN age ;
+
+Table altered.
